@@ -2,7 +2,17 @@ import { useContractRead, erc20ABI } from 'wagmi';
 
 export function useERC20Read(
   address: string,
-  method?: string | "transfer" | "transferFrom" | "approve" | "allowance" | "balanceOf" | "decimals" | "name" | "symbol" | "totalSupply",
+  method?:
+    | string
+    | 'transfer'
+    | 'transferFrom'
+    | 'approve'
+    | 'allowance'
+    | 'balanceOf'
+    | 'decimals'
+    | 'name'
+    | 'symbol'
+    | 'totalSupply',
   args?: any[]
 ): any {
   return useContractRead({

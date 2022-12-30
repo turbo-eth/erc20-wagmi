@@ -2,26 +2,36 @@
   "name": "@turbo-eth/erc20-wagmi",
   "version": "0.0.0-beta.1",
   "license": "MIT",
-  "author": "kames",
+  "author": "Kames Geraghty",
+  "source": "src/index.tsx",
   "main": "dist/index.js",
   "module": "dist/erc20-wagmi.esm.js",
   "typings": "dist/index.d.ts",
+  "exports": {
+    "require": "./dist/erc20-wagmi.cjs",
+    "default": "./dist/erc20-wagmi.modern.js"
+  },
+  "unpkg": "./dist/erc20-wagmi.umd.js",
   "files": [
     "dist",
     "src"
   ],
+  "bin": {
+    "dts": "./node_modules/bin/dts"
+  },
   "scripts": {
     "analyze": "size-limit --why",
     "build": "dts build",
     "lint": "dts lint",
-    "prepare": "dts build",
+    "prepare": "husky install ; microbundle",
     "size": "size-limit",
     "start": "dts watch",
     "test": "dts test --passWithNoTests"
   },
   "husky": {
     "hooks": {
-      "pre-commit": "dts lint"
+      "pre-commit": "dts lint",
+      "commit-msg": "dts lint"
     }
   },
   "prettier": {
@@ -53,6 +63,7 @@
     }
   ],
   "devDependencies": {
+    "@commitlint/config-conventional": "^17.3.0",
     "@size-limit/preset-small-lib": "^8.1.0",
     "@tsconfig/create-react-app": "^1.0.3",
     "@tsconfig/recommended": "^1.0.1",
@@ -60,6 +71,7 @@
     "@types/react-dom": "^18.0.10",
     "dts-cli": "^1.6.3",
     "husky": "^8.0.2",
+    "microbundle": "^0.15.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "size-limit": "^8.1.0",
