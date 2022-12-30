@@ -1,10 +1,10 @@
 {
-  "name": "testing",
-  "version": "0.1.0",
+  "name": "@turbo-eth/erc20-wagmi",
+  "version": "0.0.0-beta.1",
   "license": "MIT",
   "author": "kames",
   "main": "dist/index.js",
-  "module": "dist/testing.esm.js",
+  "module": "dist/erc20-wagmi.esm.js",
   "typings": "dist/index.d.ts",
   "files": [
     "dist",
@@ -34,19 +34,42 @@
     "testEnvironment": "jsdom"
   },
   "peerDependencies": {
-    "react": ">=16"
+    "@rainbow-me/rainbowkit": "0.8.1",
+    "ethers": "^5.7.2",
+    "react": ">=16",
+    "wagmi": "^0.9.2"
   },
   "engines": {
     "node": ">=12"
   },
   "size-limit": [
     {
-      "path": "dist/testing.cjs.production.min.js",
+      "path": "dist/erc20-wagmi.cjs.production.min.js",
       "limit": "10 KB"
     },
     {
-      "path": "dist/testing.esm.js",
+      "path": "dist/erc20-wagmi.esm.js",
       "limit": "10 KB"
     }
-  ]
+  ],
+  "devDependencies": {
+    "@size-limit/preset-small-lib": "^8.1.0",
+    "@tsconfig/create-react-app": "^1.0.3",
+    "@tsconfig/recommended": "^1.0.1",
+    "@types/react": "^18.0.26",
+    "@types/react-dom": "^18.0.10",
+    "dts-cli": "^1.6.3",
+    "husky": "^8.0.2",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "size-limit": "^8.1.0",
+    "tslib": "^2.4.1",
+    "typescript": "^4.9.4"
+  },
+  "dependencies": {
+    "classnames": "2.3.1",
+    "ethers": "^5.7.2",
+    "prop-types": "15.8.1",
+    "wagmi": "^0.9.2"
+  }
 }
