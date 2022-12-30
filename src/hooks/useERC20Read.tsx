@@ -1,6 +1,7 @@
 import { useContractRead, erc20ABI } from 'wagmi';
 
 export function useERC20Read(
+  chainId: number,
   address: string,
   method?:
     | string
@@ -16,6 +17,7 @@ export function useERC20Read(
   args?: any[]
 ): any {
   return useContractRead({
+    chainId: 1,
     address: address,
     abi: erc20ABI,
     // @ts-ignore
