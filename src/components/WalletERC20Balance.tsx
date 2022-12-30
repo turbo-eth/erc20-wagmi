@@ -7,24 +7,22 @@ import { formatEther } from 'ethers/lib/utils';
 
 interface WalletERC20BalanceProps {
   className?: string;
-  contractAddress: string;
+  address: string;
   msg?: string;
   msgActive: boolean;
 }
 
 export const WalletERC20Balance = ({
   className,
-  contractAddress,
+  address,
   msg,
   msgActive,
 }: WalletERC20BalanceProps) => {
   const classes = classNames(className, 'WalletERC20Balance');
-  const { address } = useAccount();
-  const { data, isError, isLoading } = useERC20Read(
-    contractAddress,
-    'balanceOf',
-    [address]
-  );
+  const { address: accountAddress } = useAccount();
+  const { data, isError, isLoading } = useERC20Read(address, 'balanceOf', [
+    accountAddress,
+  ]);
 
   if (isLoading) return null;
   if ((isError || (!isError && !data)) && !msgActive) return null;

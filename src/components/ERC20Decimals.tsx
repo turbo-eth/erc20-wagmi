@@ -5,18 +5,12 @@ import useERC20Read from '../hooks/useERC20Read';
 
 interface ERC20DecimalsProps {
   className?: string;
-  contractAddress: string;
+  address: string;
 }
 
-export const ERC20Decimals = ({
-  className,
-  contractAddress,
-}: ERC20DecimalsProps) => {
+export const ERC20Decimals = ({ className, address }: ERC20DecimalsProps) => {
   const classes = classNames(className, 'ERC20Decimals');
-  const { data, isError, isLoading } = useERC20Read(
-    contractAddress,
-    'decimals'
-  );
+  const { data, isError, isLoading } = useERC20Read(address, 'decimals');
   if (isError || isLoading) return null;
   return <span className={classes}>{data}</span>;
 };

@@ -4,12 +4,12 @@ import useERC20Read from '../hooks/useERC20Read';
 
 interface ERC20NameProps {
   className?: string;
-  contractAddress: string;
+  address: string;
 }
 
-export const ERC20Name = ({ className, contractAddress }: ERC20NameProps) => {
+export const ERC20Name = ({ className, address }: ERC20NameProps) => {
   const classes = classNames(className, 'ERC20Name');
-  const { data, isError, isLoading } = useERC20Read(contractAddress, 'name');
+  const { data, isError, isLoading } = useERC20Read(address, 'name');
   if (isError || isLoading) return null;
   return <span className={classes}>{data}</span>;
 };

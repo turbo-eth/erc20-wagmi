@@ -7,21 +7,20 @@ interface ERC20AllowanceProps {
   className?: string;
   account?: string;
   spender?: string;
-  contractAddress: string;
+  address: string;
 }
 
 export const ERC20Allowance = ({
   className,
   account,
   spender,
-  contractAddress,
+  address,
 }: ERC20AllowanceProps) => {
   const classes = classNames(className, 'ERC20Allowance');
-  const { data, isError, isLoading } = useERC20Read(
-    contractAddress,
-    'allowance',
-    [account, spender]
-  );
+  const { data, isError, isLoading } = useERC20Read(address, 'allowance', [
+    account,
+    spender,
+  ]);
   if (isError || isLoading) return null;
   return <span className={classes}>{formatBalance(data)}</span>;
 };

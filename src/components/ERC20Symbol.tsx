@@ -4,15 +4,12 @@ import useERC20Read from '../hooks/useERC20Read';
 
 interface ERC20SymbolProps {
   className?: string;
-  contractAddress: string;
+  address: string;
 }
 
-export const ERC20Symbol = ({
-  className,
-  contractAddress,
-}: ERC20SymbolProps) => {
+export const ERC20Symbol = ({ className, address }: ERC20SymbolProps) => {
   const classes = classNames(className, 'ERC20Symbol');
-  const { data, isError, isLoading } = useERC20Read(contractAddress, 'symbol');
+  const { data, isError, isLoading } = useERC20Read(address, 'symbol');
   if (isError || isLoading) return null;
   return <span className={classes}>{data}</span>;
 };
