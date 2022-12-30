@@ -12,7 +12,7 @@
   "umd:main": "dist/erc20-wagmi.umd.js",
   "module": "dist/erc20-wagmi.modern.js",
   "unpkg": "./dist/erc20-wagmi.umd.js",
-  "typings": "dist/erc20-wagmi.d.ts",
+  "typings": "dist/index.d.ts",
   "files": [
     "dist",
     "src"
