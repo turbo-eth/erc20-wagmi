@@ -14,11 +14,7 @@ export const ERC20Symbol = ({
   address,
 }: ERC20SymbolProps) => {
   const classes = classNames(className, 'ERC20Symbol');
-  const { data, isError, isLoading } = useERC20Read(
-    chainId,
-    address,
-    ' symbol'
-  );
+  const { data, isError, isLoading } = useERC20Read(chainId, address, 'symbol');
   if (isError || isLoading) return null;
   return <span className={classes}>{data}</span>;
 };

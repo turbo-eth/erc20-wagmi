@@ -17,7 +17,7 @@ export function useERC20Read(
   args?: any[]
 ): any {
   return useContractRead({
-    chainId: 1,
+    chainId: chainId,
     address: address,
     abi: erc20ABI,
     // @ts-ignore

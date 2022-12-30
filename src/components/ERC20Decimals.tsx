@@ -17,8 +17,9 @@ export const ERC20Decimals = ({
   const { data, isError, isLoading } = useERC20Read(
     chainId,
     address,
-    ' decimals'
+    'decimals'
   );
+
   if (isError || isLoading) return null;
   return <span className={classes}>{data}</span>;
 };

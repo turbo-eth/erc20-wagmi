@@ -10,7 +10,7 @@ interface ERC20NameProps {
 
 export const ERC20Name = ({ className, chainId, address }: ERC20NameProps) => {
   const classes = classNames(className, 'ERC20Name');
-  const { data, isError, isLoading } = useERC20Read(chainId, address, ' name');
+  const { data, isError, isLoading } = useERC20Read(chainId, address, 'name');
   if (isError || isLoading) return null;
   return <span className={classes}>{data}</span>;
 };

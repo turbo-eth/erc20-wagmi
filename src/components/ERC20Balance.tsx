@@ -6,14 +6,14 @@ import useERC20Read from '../hooks/useERC20Read';
 
 interface ERC20BalanceProps {
   className?: string;
-  userAddress?: string;
+  account?: string;
   address: string;
   chainId: number;
 }
 
 export const ERC20Balance = ({
   className,
-  userAddress,
+  account,
   chainId,
   address,
 }: ERC20BalanceProps) => {
@@ -22,7 +22,7 @@ export const ERC20Balance = ({
     chainId,
     address,
     'balanceOf',
-    [userAddress]
+    [account]
   );
   if (isError || isLoading) return null;
   return <span className={classes}>{utils.formatEther(data || '0')}</span>;
