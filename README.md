@@ -91,11 +91,9 @@ The TurboETH Web3 Build System development is (currently) sponsored (and maintai
  <img src="https://red-effective-snake-988.mypinata.cloud/ipfs/QmXhSGcjL9oqQUpoSLzJ1vWto4B43epATpraqJhV5B4cdB">
 </a>
 
-Interested in sponsoring the development and maintenance of the TurboETH - Web3 Build System suite of tools and templates?
+Interested in sponsoring the development and maintenance of the `TurboETH - Web3 Build System` templates, utilities and modules?
 
-Contact us today at <a alt="District Labs" href="https://districtlabs.com/" target="_blank">
-District Labs
-</a> or collect (coming soon) the TurboETH Mirror Collection.
+Contact us today at <a alt="District Labs" href="https://districtlabs.com/" target="_blank">District Labs</a> or collect (coming soon) the TurboETH Mirror Collection.
 
 <hr />
 
