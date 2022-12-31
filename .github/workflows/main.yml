@@ -24,7 +24,7 @@ jobs:
           version: 6.0.2
 
       - name: Install
-        run: pnpm i --force
+        run: pnpm i --frozen-lockfile
 
       - name: Test
         run: pnpm test
