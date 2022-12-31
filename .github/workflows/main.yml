@@ -23,8 +23,11 @@ jobs:
         with:
           version: 6.0.2
 
+      - name: Install
+        run: pnpm i
+
       - name: Test
-        run: pnpm ./node_modules/.bin/dts test
+        run: pnpm test
 
       - name: Build
-        run: pnpm ./node_modules/.bin/dts build
+        run: pnpm build

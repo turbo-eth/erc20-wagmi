@@ -17,9 +17,6 @@
     "dist",
     "src"
   ],
-  "bin": {
-    "dts": "./node_modules/.bin/dts"
-  },
   "scripts": {
     "analyze": "size-limit --why",
     "build": "microbundle --jsx React.createElement",
