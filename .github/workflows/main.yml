@@ -24,7 +24,7 @@ jobs:
           version: 6.0.2
 
       - name: Install
-        run: pnpm i
+        run: pnpm i --force
 
       - name: Test
         run: pnpm test
