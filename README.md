@@ -28,11 +28,68 @@ git clone https://github.com/turbo-eth/erc20-wagmi
 
 The module uses a combination of [DTS](https://github.com/weiran-zsd/dts-cli) and [Microbundle](https://github.com/developit/microbundle) to manage the development workflow.
 
-- Typescript
-- Rollup
-- Jest
-- Prettier
-- ESLint
+- [Husky](https://typicode.github.io/husky/#/)
+- [Jest](https://jestjs.io/)
+- [Commitlint](https://github.com/conventional-changelog/commitlint)
+- [TypeScript](https://www.typescriptlang.org/)
+- [eslint](https://eslint.org/) + [prettier](https://prettier.io/)
+
+### 🐕 What is husky
+
+Husky improves your git commits.
+
+You can use it to lint your commit messages, run tests, lint code, etc... when you commit or push. Husky supports all Git hooks.
+
+#### 🪝 Hooks
+
+- pre-commit: lint code by applying eslint
+- commit-msg: force commintlint rules
+
+### 📋 What is commitlint
+
+commitlint checks if your commit messages meet the [conventional commit format](https://conventionalcommits.org).
+
+In general the pattern mostly looks like this:
+
+```sh
+type(scope?): subject  #scope is optional; multiple scopes are supported (current delimiter options: "/", "\" and ",")
+```
+
+Real world examples can look like this:
+
+```
+chore: run tests on travis ci
+```
+
+```
+fix(server): send cors headers
+```
+
+```
+feat(blog): add comment section
+```
+
+Common types according to [commitlint-config-conventional (based on the Angular convention)](https://github.com/conventional-changelog/commitlint/tree/master/@commitlint/config-conventional#type-enum) can be:
+
+- build
+- chore
+- ci
+- docs
+- feat
+- fix
+- perf
+- refactor
+- revert
+- style
+- test
+
+### Sponsors
+
+The TurboETH Web3 Build System development is sponsored by District Labs.
+
+<a alt="District Labs" href="https://districtlabs.com/" target="_blank">
+ <img src="https://red-effective-snake-988.mypinata.cloud/ipfs/QmXhSGcjL9oqQUpoSLzJ1vWto4B43epATpraqJhV5B4cdB">
+</a>
 
 <hr />
 
