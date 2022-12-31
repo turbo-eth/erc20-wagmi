@@ -19,9 +19,9 @@ jobs:
         with:
           node-version: ${{ matrix.node }}
 
-      - name: Install deps and build (with cache)
-        uses: bahmutov/npm-install@v1
-
+      - uses: pnpm/action-setup@v2
+        with:
+          version: 6.0.2
       - name: Lint
         run: pnpm lint
 
