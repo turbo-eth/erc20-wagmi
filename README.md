@@ -83,13 +83,19 @@ Common types according to [commitlint-config-conventional (based on the Angular 
 - style
 - test
 
-### Sponsors
+### Sponsors & Maintainers
 
-The TurboETH Web3 Build System development is sponsored by District Labs.
+The TurboETH Web3 Build System development is (currently) sponsored (and maintained) by District Labs.
 
 <a alt="District Labs" href="https://districtlabs.com/" target="_blank">
  <img src="https://red-effective-snake-988.mypinata.cloud/ipfs/QmXhSGcjL9oqQUpoSLzJ1vWto4B43epATpraqJhV5B4cdB">
 </a>
+
+Interested in sponsoring the development and maintenance of the TurboETH - Web3 Build System suite of tools and templates?
+
+Contact us today at <a alt="District Labs" href="https://districtlabs.com/" target="_blank">
+District Labs
+</a> or collect (coming soon) the TurboETH Mirror Collection.
 
 <hr />
 
