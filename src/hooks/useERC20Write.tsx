@@ -1,19 +1,46 @@
-import { useContractWrite, erc20ABI, usePrepareContractWrite } from 'wagmi';
+import {
+  erc20ABI,
+  useContractWrite,
+  useNetwork,
+  usePrepareContractWrite,
+} from 'wagmi';
 
-export function useERC20Write(
-  address: string,
-  method: string,
-  args: any[],
-  overrides?: any,
-  configs?: any
-): any {
+import { PrepareWriteOptions } from '../types/module';
+
+export function useERC20Write({
+  address,
+  abi,
+  functionName,
+  args,
+  chainId,
+  cacheTime,
+  enabled,
+  scopeKey,
+  staleTime,
+  suspense,
+  overrides,
+  onSuccess,
+  onError,
+  onSettled,
+}: PrepareWriteOptions): ReturnType<typeof useContractWrite> {
+  const { chain } = useNetwork();
   const { config } = usePrepareContractWrite({
     address: address,
-    abi: erc20ABI,
-    functionName: method,
+    abi: abi || erc20ABI,
+    // @ts-ignore
+    functionName: functionName,
+    // @ts-ignore
     args: args,
+    chainId: chainId || chain?.id || 1,
+    cacheTime: cacheTime,
+    enabled: enabled,
+    scopeKey: scopeKey,
+    staleTime: staleTime,
+    suspense: suspense,
     overrides: overrides,
-    ...configs,
+    onSuccess: onSuccess,
+    onError: onError,
+    onSettled: onSettled,
   });
   // @ts-ignore
   return useContractWrite(config);

@@ -1,9 +1,10 @@
 import * as React from 'react';
 
 import classNames from 'classnames';
-import useERC20Read from '../hooks/useERC20Read';
-import { useAccount } from 'wagmi';
 import { utils } from 'ethers';
+import { useAccount } from 'wagmi';
+
+import useERC20Read from '../hooks/useERC20Read';
 
 interface WalletERC20BalanceProps {
   className?: string;
@@ -22,20 +23,26 @@ export const WalletERC20Balance = ({
 }: WalletERC20BalanceProps) => {
   const classes = classNames(className, 'WalletERC20Balance');
   const { address: accountAddress } = useAccount();
-  const { data: decimals } = useERC20Read(chainId, address, 'decimals', []);
-  const { data, isError, isLoading } = useERC20Read(
+  const { data: decimals } = useERC20Read({
     chainId,
     address,
-    'balanceOf',
-    [accountAddress]
-  );
+    functionName: 'decimals',
+  });
+  const { data, isError, isLoading } = useERC20Read({
+    chainId,
+    address,
+    functionName: 'balanceOf',
+    args: [accountAddress],
+  });
 
   if (isLoading) return null;
   if ((isError || (!isError && !data)) && !msgActive) return null;
   if ((isError || (!isError && !data)) && msgActive)
     return <span className={className}>{msg}</span>;
   return (
-    <span className={classes}>{utils.formatUnits(data || '0', decimals)}</span>
+    <span className={classes}>
+      {utils.formatUnits(String(data), String(decimals))}
+    </span>
   );
 };
 

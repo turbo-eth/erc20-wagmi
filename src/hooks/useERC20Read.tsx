@@ -1,29 +1,39 @@
-import { useContractRead, erc20ABI } from 'wagmi';
+import { erc20ABI, useContractRead } from 'wagmi';
 
-export function useERC20Read(
-  chainId: number,
-  address: string,
-  method?:
-    | string
-    | 'transfer'
-    | 'transferFrom'
-    | 'approve'
-    | 'allowance'
-    | 'balanceOf'
-    | 'decimals'
-    | 'name'
-    | 'symbol'
-    | 'totalSupply',
-  args?: any[]
-): any {
+import { ContractReadOptions } from '../types/module';
+
+export function useERC20Read({
+  functionName,
+  abi,
+  args,
+  address,
+  chainId,
+  cacheTime,
+  enabled,
+  scopeKey,
+  staleTime,
+  suspense,
+  overrides,
+  onSuccess,
+  onError,
+  onSettled,
+}: ContractReadOptions): ReturnType<typeof useContractRead> {
   return useContractRead({
     chainId: chainId,
     address: address,
-    abi: erc20ABI,
-    // @ts-ignore
-    functionName: method,
+    abi: abi || erc20ABI,
+    functionName: functionName,
     // @ts-ignore
     args: args,
+    cacheTime: cacheTime,
+    enabled: enabled,
+    scopeKey: scopeKey,
+    staleTime: staleTime,
+    suspense: suspense,
+    overrides: overrides,
+    onSuccess: onSuccess,
+    onError: onError,
+    onSettled: onSettled,
   });
 }
 
