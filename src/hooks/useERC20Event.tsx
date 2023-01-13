@@ -1,7 +1,5 @@
 import { erc20ABI, useContractEvent, useNetwork } from 'wagmi';
 
-import { ContractEventOptions } from '../types/module';
-
 interface ERC20EventOptions extends ContractEventOptions {
   eventName?: 'Approval' | 'Transfer' | undefined;
 }

@@ -3,7 +3,6 @@ import * as React from 'react';
 import classNames from 'classnames';
 
 import useERC20Read from '../hooks/useERC20Read';
-import { ContractReadOptions } from '../types/module';
 import { formatBalance } from '../utilities';
 
 interface ERC20BalanceProps extends ContractReadOptions {

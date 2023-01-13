@@ -1,7 +1,5 @@
 import { erc20ABI, useContractRead } from 'wagmi';
 
-import { ContractReadOptions } from '../types/module';
-
 export function useERC20Read({
   functionName,
   abi,

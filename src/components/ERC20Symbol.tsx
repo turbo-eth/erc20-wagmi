@@ -3,7 +3,6 @@ import React from 'react';
 import classNames from 'classnames';
 
 import useERC20Read from '../hooks/useERC20Read';
-import { ContractReadOptions } from '../types/module';
 
 interface ERC20SymbolProps extends ContractReadOptions {
   className?: string;

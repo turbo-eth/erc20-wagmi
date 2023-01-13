@@ -5,8 +5,6 @@ import {
   usePrepareContractWrite,
 } from 'wagmi';
 
-import { PrepareWriteOptions } from '../types/module';
-
 export function useERC20Write({
   address,
   abi,
