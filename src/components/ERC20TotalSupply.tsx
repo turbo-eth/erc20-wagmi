@@ -5,8 +5,29 @@ import classNames from 'classnames';
 import useERC20Read from '../hooks/useERC20Read';
 import { formatBalance } from '../utilities';
 
-interface ERC20TotalSupplyProps extends ContractReadOptions {
+interface ERC20TotalSupplyProps {
   className?: string;
+  address: string;
+  abi?: any;
+  functionName?: string;
+  chainId?: number;
+  args?: any[];
+  cacheOnBlock?: boolean;
+  watch?: boolean;
+  cacheTime?: number;
+  enabled?: boolean;
+  isDataEqual?: (a: any, b: any) => boolean;
+  structuralSharing?: (a: any, b: any) => boolean;
+  scopeKey?: string;
+  staleTime?: number;
+  suspense?: boolean;
+  select?: () => void;
+  overrides?: {
+    [key: string]: any;
+  };
+  onSuccess?: () => void;
+  onError?: () => void;
+  onSettled?: () => void;
 }
 
 export const ERC20TotalSupply = ({
@@ -24,7 +45,7 @@ export const ERC20TotalSupply = ({
   onSuccess,
   onError,
   onSettled,
-}: ERC20TotalSupplyProps) => {
+}: ERC20TotalSupplyProps): JSX.Element | null => {
   const classes = classNames(className, 'ERC20TotalSupply');
   const { data, isError, isLoading } = useERC20Read({
     chainId,

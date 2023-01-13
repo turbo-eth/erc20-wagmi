@@ -31,7 +31,7 @@ interface ContractReadOptions {
   onSettled?: () => void;
 }
 
-interface PrepareWriteOptions {
+interface PrepareWriteOptions{
   address: string;
   abi?: any;
   functionName?: string;

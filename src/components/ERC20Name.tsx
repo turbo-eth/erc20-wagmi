@@ -4,8 +4,29 @@ import classNames from 'classnames';
 
 import useERC20Read from '../hooks/useERC20Read';
 
-interface ERC20NameProps extends ContractReadOptions {
+interface ERC20NameProps {
   className?: string;
+  address: string;
+  abi?: any;
+  functionName?: string;
+  chainId?: number;
+  args?: any[];
+  cacheOnBlock?: boolean;
+  watch?: boolean;
+  cacheTime?: number;
+  enabled?: boolean;
+  isDataEqual?: (a: any, b: any) => boolean;
+  structuralSharing?: (a: any, b: any) => boolean;
+  scopeKey?: string;
+  staleTime?: number;
+  suspense?: boolean;
+  select?: () => void;
+  overrides?: {
+    [key: string]: any;
+  };
+  onSuccess?: () => void;
+  onError?: () => void;
+  onSettled?: () => void;
 }
 
 export const ERC20Name = ({
@@ -23,7 +44,7 @@ export const ERC20Name = ({
   onSuccess,
   onError,
   onSettled,
-}: ERC20NameProps) => {
+}: ERC20NameProps): JSX.Element | null => {
   const classes = classNames(className, 'ERC20Name');
   const { data, isError, isLoading } = useERC20Read({
     chainId,

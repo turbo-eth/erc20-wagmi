@@ -10,8 +10,8 @@ interface WalletERC20BalanceProps {
   className?: string;
   address: string;
   msg?: string;
-  msgActive: boolean;
-  chainId: number;
+  msgActive?: boolean;
+  chainId?: number;
 }
 
 export const WalletERC20Balance = ({

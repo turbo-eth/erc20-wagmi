@@ -4,12 +4,32 @@ import classNames from 'classnames';
 
 import useERC20Read from '../hooks/useERC20Read';
 
-interface ERC20DecimalsProps extends ContractReadOptions {
+interface ERC20DecimalsProps {
   className?: string;
+  address: string;
+  abi?: any;
+  functionName?: string;
+  chainId?: number;
+  args?: any[];
+  cacheOnBlock?: boolean;
+  watch?: boolean;
+  cacheTime?: number;
+  enabled?: boolean;
+  isDataEqual?: (a: any, b: any) => boolean;
+  structuralSharing?: (a: any, b: any) => boolean;
+  scopeKey?: string;
+  staleTime?: number;
+  suspense?: boolean;
+  select?: () => void;
+  overrides?: {
+    [key: string]: any;
+  };
+  onSuccess?: () => void;
+  onError?: () => void;
+  onSettled?: () => void;
 }
 
 export const ERC20Decimals = ({
-  className,
   chainId,
   address,
   args,
@@ -23,8 +43,8 @@ export const ERC20Decimals = ({
   onSuccess,
   onError,
   onSettled,
-}: ERC20DecimalsProps) => {
-  const classes = classNames(className, 'ERC20Decimals');
+}: ERC20DecimalsProps): JSX.Element | null => {
+  const classes = classNames('ERC20Decimals');
   const { data, isError, isLoading } = useERC20Read({
     chainId,
     address,
