@@ -1,10 +1,3 @@
-import type {
-  QueryFunctionContext,
-  UseInfiniteQueryOptions,
-  UseMutationOptions,
-  UseQueryOptions,
-} from '@tanstack/react-query';
-
 interface ContractEventOptions {
   address: string;
   chainId?: number;
