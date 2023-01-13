@@ -52,11 +52,11 @@
   },
   "size-limit": [
     {
-      "path": "dist/erc20-wagmi.cjs.production.min.js",
+      "path": "dist/erc20-wagmi.modern.js",
       "limit": "10 KB"
     },
     {
-      "path": "dist/erc20-wagmi.esm.js",
+      "path": "dist/erc20-wagmi.umd.js",
       "limit": "10 KB"
     }
   ],
