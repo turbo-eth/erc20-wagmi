@@ -1,7 +1,6 @@
 import * as React from 'react';
 
 import classNames from 'classnames';
-import { BigNumber } from 'ethers';
 
 import useERC20Read from '../hooks/useERC20Read';
 import { ContractReadOptions } from '../types/module';
@@ -44,7 +43,7 @@ export const ERC20Decimals = ({
     onSettled,
   });
   if (isError || isLoading) return null;
-  return <span className={classes}>{BigNumber.from(data).toString()}</span>;
+  return <span className={classes}>{String(data)}</span>;
 };
 
 export default ERC20Decimals;
