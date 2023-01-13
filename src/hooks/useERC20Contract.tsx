@@ -1,9 +1,14 @@
-import { useContract, erc20ABI } from 'wagmi';
+import { Signer, providers } from 'ethers';
+import { erc20ABI, useContract } from 'wagmi';
 
-export function useERC20Contract(address: string): any {
+export function useERC20Contract(
+  address: string,
+  signerOrProvider?: Signer | providers.Provider
+): ReturnType<typeof useContract> {
   return useContract({
     address: address,
     abi: erc20ABI,
+    signerOrProvider: signerOrProvider,
   });
 }
 

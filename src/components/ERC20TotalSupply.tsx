@@ -1,14 +1,16 @@
-import React from 'react';
+import * as React from 'react';
 
 import classNames from 'classnames';
 
 import useERC20Read from '../hooks/useERC20Read';
 import { ContractReadOptions } from '../types/module';
+import { formatBalance } from '../utilities';
 
-interface ERC20SymbolProps extends ContractReadOptions {
+interface ERC20TotalSupplyProps extends ContractReadOptions {
   className?: string;
 }
-export const ERC20Symbol = ({
+
+export const ERC20TotalSupply = ({
   className,
   chainId,
   address,
@@ -23,12 +25,12 @@ export const ERC20Symbol = ({
   onSuccess,
   onError,
   onSettled,
-}: ERC20SymbolProps) => {
-  const classes = classNames(className, 'ERC20Symbol');
+}: ERC20TotalSupplyProps) => {
+  const classes = classNames(className, 'ERC20TotalSupply');
   const { data, isError, isLoading } = useERC20Read({
     chainId,
     address,
-    functionName: 'symbol',
+    functionName: 'totalSupply',
     args,
     cacheOnBlock,
     cacheTime,
@@ -42,7 +44,7 @@ export const ERC20Symbol = ({
     onSettled,
   });
   if (isError || isLoading) return null;
-  return <span className={classes}>{String(data)}</span>;
+  return <span className={classes}>{formatBalance(String(data))}</span>;
 };
 
-export default ERC20Symbol;
+export default ERC20TotalSupply;
