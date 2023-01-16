@@ -17,16 +17,13 @@
     "/dist",
     "/src"
   ],
-  "bin": {
-    "dts": "./node_modules/.bin/dts"
-  },
   "scripts": {
     "analyze": "size-limit --why",
     "build": "microbundle --jsx React.createElement --tsconfig tsconfig.build.json",
     "lint": "dts lint",
     "prepare": "husky install ; microbundle",
     "size": "size-limit",
-    "start": "dts watch",
+    "start": "microbundle --jsx React.createElement watch --tsconfig tsconfig.build.json",
     "test": "dts test --passWithNoTests"
   },
   "husky": {
