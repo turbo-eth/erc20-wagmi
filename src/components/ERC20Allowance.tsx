@@ -1,9 +1,9 @@
 import * as React from 'react';
 
-import classNames from 'classnames';
+import classNames from 'clsx';
 
-import { useErc20Allowance } from '../core';
-import { formatBalance } from '../utilities';
+import { useErc20Allowance, useErc20Decimals } from '../core';
+import { formatUnits } from 'viem';
 
 interface ERC20AllowanceProps {
   className?: string;
@@ -47,6 +47,10 @@ export const ERC20Allowance = ({
   onSettled,
 }: ERC20AllowanceProps): JSX.Element | null => {
   const classes = classNames(className, 'ERC20Allowance');
+  const { data: decimals } = useErc20Decimals({
+    chainId,
+    address,
+  });
   const { data, isError, isLoading } = useErc20Allowance({
     chainId,
     address,
@@ -63,7 +67,11 @@ export const ERC20Allowance = ({
     onSettled,
   });
   if (isError || isLoading) return null;
-  return <span className={classes}>{formatBalance(String(data))}</span>;
+  return (
+    <span className={classes}>
+      {formatUnits(data as unknown as bigint, (decimals as number) || 18)}
+    </span>
+  );
 };
 
 export default ERC20Allowance;

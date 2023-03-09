@@ -1,3 +1,4 @@
+export * from './core';
 export { ERC20Allowance } from './components/ERC20Allowance';
 export { ERC20Balance } from './components/ERC20Balance';
 export { ERC20Decimals } from './components/ERC20Decimals';

@@ -1,6 +1,6 @@
 {
   "name": "@turbo-eth/erc20-wagmi",
-  "version": "0.0.0-beta.11",
+  "version": "0.0.0-beta.12",
   "license": "MIT",
   "author": "Kames Geraghty",
   "source": "src/index.tsx",
@@ -76,6 +76,7 @@
     "@types/prop-types": "^15.7.5",
     "@types/react": "^18.0.26",
     "@types/react-dom": "^18.0.10",
+    "@wagmi/cli": "^0.1.11",
     "dts-cli": "^1.6.3",
     "eslint-plugin-simple-import-sort": "^7.0.0",
     "eslint-plugin-unused-imports": "^2.0.0",
@@ -88,12 +89,10 @@
     "typescript": "^4.9.4"
   },
   "dependencies": {
-    "@wagmi/cli": "^0.1.11",
-    "@wagmi/core": "^0.10.1",
     "classnames": "2.3.1",
-    "ethers": "5.7.2",
+    "clsx": "^1.2.1",
     "prop-types": "15.8.1",
-    "react-native": "^0.71.0",
+    "viem": "^0.1.7",
     "wagmi": "0.11.7"
   }
 }

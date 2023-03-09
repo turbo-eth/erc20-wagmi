@@ -1,16 +1,14 @@
 import * as React from 'react';
 
-import classNames from 'classnames';
-import { utils } from 'ethers';
+import classNames from 'clsx';
 import { useAccount } from 'wagmi';
 
 import { useErc20BalanceOf, useErc20Decimals } from '../core';
+import { formatUnits } from 'viem';
 
 interface WalletERC20BalanceProps {
   className?: string;
   address: '0x${string}';
-  msg?: string;
-  msgActive?: boolean;
   chainId?: number;
 }
 
@@ -35,15 +33,7 @@ export const WalletERC20Balance = ({
   if (isError || (!isError && !data)) return null;
   return (
     <span className={classes}>
-      {utils.formatUnits(String(data), String(decimals))}
+      {formatUnits(data?.toString() as unknown as bigint, decimals as number)}
     </span>
   );
 };
-
-WalletERC20Balance.defaultProps = {
-  msg: 'Connect Wallet',
-  msgActive: false,
-  truncate: false,
-};
-
-export default WalletERC20Balance;
