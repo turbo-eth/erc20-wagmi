@@ -2,18 +2,16 @@ import * as React from 'react';
 
 import classNames from 'classnames';
 
-import useERC20Read from '../hooks/useERC20Read';
 import { formatBalance } from '../utilities';
+import { useErc20Allowance } from '../core';
 
 interface ERC20AllowanceProps {
   className?: string;
-  account?: string;
-  spender?: string;
-  address: string;
+  address: '0x${string}';
   abi?: any;
   functionName?: string;
   chainId?: number;
-  args?: any[];
+  args?: readonly [`0x${string}`, `0x${string}`];
   cacheOnBlock?: boolean;
   watch?: boolean;
   cacheTime?: number;
@@ -34,8 +32,6 @@ interface ERC20AllowanceProps {
 
 export const ERC20Allowance = ({
   className,
-  account,
-  spender,
   chainId,
   address,
   args,
@@ -51,11 +47,10 @@ export const ERC20Allowance = ({
   onSettled,
 }: ERC20AllowanceProps): JSX.Element | null => {
   const classes = classNames(className, 'ERC20Allowance');
-  const { data, isError, isLoading } = useERC20Read({
+  const { data, isError, isLoading } = useErc20Allowance({
     chainId,
     address,
-    functionName: 'allowance',
-    args: args || [account, spender],
+    args: args,
     cacheOnBlock,
     cacheTime,
     enabled,

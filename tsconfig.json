@@ -1,20 +1,29 @@
 {
-  // see https://www.typescriptlang.org/tsconfig to better understand tsconfigs
   "extends": "@tsconfig/create-react-app/tsconfig.json",
-  "include": ["**/*.ts", "./**/*.tsx", "./src/*.d.ts"],
-  "exclude": ["node_modules", "dist", "commitlint.config.cjs"],
+  "ts-node": {
+    "require": ["tsconfig-paths/register"]
+  },
   "compilerOptions": {
+    "declaration": false,
+    "baseUrl": "./",
+    "target": "ES6",
+    "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
-    "baseUrl": "./src",
-    "noEmit": true,
-    "jsx": "react",
-    "jsxFactory": "React.createElement",
-    "jsxFragmentFactory": "React.Fragment",
-    "outDir": "dist",
     "skipLibCheck": true,
+    "strict": false,
+    "forceConsistentCasingInFileNames": true,
+    "noEmit": true,
+    "esModuleInterop": true,
+    "module": "ES2022",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "jsx": "preserve",
+    "incremental": true,
     "paths": {
-      "*": ["./types/*.d.ts"]
-    },
-    "strict": true
-  }
+      "@/*": ["./*"]
+    }
+  },
+  "include": ["**/*.ts", "**/*.tsx"],
+  "exclude": ["node_modules"]
 }

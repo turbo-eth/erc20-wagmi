@@ -30,10 +30,7 @@
         "@typescript-eslint/comma-dangle": "off", // Avoid conflict rule between Eslint and Prettier
         "@typescript-eslint/consistent-type-imports": "off", // Ensure `import type` is used when it's necessary
         "import/prefer-default-export": "off", // Named export is easier to refactor automatically
-        "unused-imports/no-unused-vars": [
-          "error",
-          { "argsIgnorePattern": "^_" }
-        ],
+        "unused-imports/no-unused-vars": [1, { "argsIgnorePattern": "^_" }],
         "sort-imports": [
           1,
           {

@@ -2,16 +2,14 @@ import * as React from 'react';
 
 import classNames from 'classnames';
 
-import useERC20Read from '../hooks/useERC20Read';
 import { formatBalance } from '../utilities';
+import { useErc20TotalSupply } from '../core';
 
 interface ERC20TotalSupplyProps {
   className?: string;
-  address: string;
+  address: '0x${string}';
   abi?: any;
-  functionName?: string;
   chainId?: number;
-  args?: any[];
   cacheOnBlock?: boolean;
   watch?: boolean;
   cacheTime?: number;
@@ -34,7 +32,6 @@ export const ERC20TotalSupply = ({
   className,
   chainId,
   address,
-  args,
   cacheOnBlock,
   cacheTime,
   enabled,
@@ -47,11 +44,9 @@ export const ERC20TotalSupply = ({
   onSettled,
 }: ERC20TotalSupplyProps): JSX.Element | null => {
   const classes = classNames(className, 'ERC20TotalSupply');
-  const { data, isError, isLoading } = useERC20Read({
+  const { data, isError, isLoading } = useErc20TotalSupply({
     chainId,
     address,
-    functionName: 'totalSupply',
-    args,
     cacheOnBlock,
     cacheTime,
     enabled,
