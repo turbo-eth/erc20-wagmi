@@ -1,6 +1,6 @@
 {
   "name": "@turbo-eth/erc20-wagmi",
-  "version": "0.0.0-beta.9",
+  "version": "0.0.0-beta.10",
   "license": "MIT",
   "author": "Kames Geraghty",
   "source": "src/index.tsx",
@@ -19,7 +19,7 @@
   ],
   "scripts": {
     "analyze": "size-limit --why",
-    "build": "microbundle",
+    "build": "microbundle --jsx React.createElement",
     "start": "microbundle --jsx React.createElement watch --tsconfig tsconfig.build.json",
     "lint": "dts lint",
     "prepare": "husky install ; microbundle",
