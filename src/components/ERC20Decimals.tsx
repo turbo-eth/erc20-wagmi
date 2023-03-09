@@ -1,6 +1,7 @@
 import * as React from 'react';
 
 import classNames from 'classnames';
+
 import { useErc20Decimals } from '../core';
 
 interface ERC20DecimalsProps {

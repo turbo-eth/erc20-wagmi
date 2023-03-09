@@ -1,6 +1,7 @@
 import React from 'react';
 
 import classNames from 'classnames';
+
 import { useErc20Symbol } from '../core';
 
 interface ERC20SymbolProps {

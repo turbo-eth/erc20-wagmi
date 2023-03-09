@@ -3,6 +3,7 @@ import * as React from 'react';
 import classNames from 'classnames';
 import { utils } from 'ethers';
 import { useAccount } from 'wagmi';
+
 import { useErc20BalanceOf, useErc20Decimals } from '../core';
 
 interface WalletERC20BalanceProps {

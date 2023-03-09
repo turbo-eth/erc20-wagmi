@@ -2,8 +2,8 @@ import * as React from 'react';
 
 import classNames from 'classnames';
 
-import { formatBalance } from '../utilities';
 import { useErc20BalanceOf } from '../core';
+import { formatBalance } from '../utilities';
 
 interface ERC20BalanceProps {
   className?: string;
