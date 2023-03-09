@@ -12,6 +12,8 @@ jobs:
       
       - name: Install deps and build (with cache)
         uses: pnpm/action-setup@v2
+        with:
+          version: 7.18.2
       
       - name: Build 💻
         run: pnpm run build
