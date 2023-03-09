@@ -32,7 +32,6 @@ export const ERC20Name = ({
   className,
   chainId,
   address,
-  args,
   cacheOnBlock,
   cacheTime,
   enabled,
