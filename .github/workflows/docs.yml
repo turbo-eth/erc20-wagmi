@@ -11,15 +11,13 @@ jobs:
         uses: actions/setup-node@v2
       
       - name: Install deps and build (with cache)
-        uses: bahmutov/npm-install@v1
-        with:
-          useLockFile: false
+        uses: pnpm/action-setup@v2
       
       - name: Build 💻
-        run: yarn build
+        run: pnpm run build
       
       - name: Generate Docs 📖
-        run: yarn docs:html
+        run: pnpm run docs:html
       
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@4.1.4
