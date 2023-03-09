@@ -4,14 +4,14 @@
     "require": ["tsconfig-paths/register"]
   },
   "typedocOptions": {
-    "entryPoints": ["./src/index.ts"],
+    "entryPoints": ["./src/index.tsx"],
     "out": "docs",
     "readme": "README.md"
   },
   "compilerOptions": {
     "sourceMap": false,
     "declaration": false,
-    "baseUrl": "./",
+    "baseUrl": "./src",
     "target": "ES6",
     "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,

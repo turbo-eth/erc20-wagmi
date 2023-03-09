@@ -59,12 +59,12 @@
   },
   "size-limit": [
     {
-      "path": "dist/erc20-wagmi.modern.js",
-      "limit": "10 KB"
+      "path": "dist/index.module.js",
+      "limit": "24 KB"
     },
     {
-      "path": "dist/erc20-wagmi.umd.js",
-      "limit": "10 KB"
+      "path": "dist/index.umd.js",
+      "limit": "52 KB"
     }
   ],
   "devDependencies": {
