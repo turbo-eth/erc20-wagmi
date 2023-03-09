@@ -24,7 +24,7 @@ pnpm add @turbo-eth/erc721-wagmi
 git clone https://github.com/turbo-eth/erc20-wagmi
 ```
 
-### Information
+### 📚Information
 
 The `@turbo-eth/erc20-wagmi` module exports core ERC20 hooks and components for React application.
 
@@ -41,13 +41,16 @@ The `@turbo-eth/erc20-wagmi` module also includes ERC20 primitive components.
 - ERC20Symbol
 - WalletERC20Balance
 
+Components have no initial styling or design.
 
-#### Quickstart
+### ⚡️ Quickstart
+
+Use existing ERC20 components or add ERC20 hooks to easily build new components.
 
 ```typescript
 import * as React from 'react';
 import classNames from 'clsx';
-import { ERC20Decimals, ERC20Name, ERC20Symbol, } from '@turbo-eth/erc20-wagmi'
+import { ERC20Decimals, ERC20Name, ERC20Symbol, useErc20BalanceOf } from '@turbo-eth/erc20-wagmi'
 
 interface TokenInformationProps {
  className?: string;
@@ -68,6 +71,13 @@ export const TokenInformation = ({ className, address }: TokenInformationProps) 
     <ERC20Name address={address} />
     <ERC20Symbol address={address} />
     <ERC20Decimals address={address} />
+    {
+      isError ? null : (
+        <span className={classes}>
+          {formatUnits(data as unknown as bigint, (decimals as number) || 18)}
+        </span>
+      )
+    }
   </div>
 )}
 

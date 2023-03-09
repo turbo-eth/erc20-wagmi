@@ -3,6 +3,11 @@
   "ts-node": {
     "require": ["tsconfig-paths/register"]
   },
+  "typedocOptions": {
+    "entryPoints": ["./src/index.ts"],
+    "out": "docs",
+    "readme": "README.md"
+  },
   "compilerOptions": {
     "sourceMap": false,
     "declaration": false,
@@ -23,6 +28,6 @@
       "*": ["./types/*.d.ts"]
     }
   },
-  "include": ["**/*.ts", "**/*.tsx", "test/*.test.tsx"],
+  "include": ["**/*.ts", "**/*.tsx", "test/*.test.tsx", "dts.config.tsss"],
   "exclude": ["node_modules", "dist", "example"]
 }

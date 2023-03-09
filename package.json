@@ -25,6 +25,8 @@
     "prepare": "husky install ; microbundle  --jsx React.createElement",
     "size": "size-limit",
     "test": "dts test --passWithNoTests",
+    "docs": "yarn typedoc --plugin typedoc-plugin-markdown --hideBreadcrumbs true --namedAnchors true --entryDocument index.md",
+    "docs:html": "yarn typedoc --plugin none --out docs",
     "wagmi:init": "wagmi init",
     "wagmi:generate": "wagmi generate"
   },
@@ -82,6 +84,8 @@
     "eslint-plugin-unused-imports": "^2.0.0",
     "husky": "^8.0.2",
     "microbundle": "^0.15.1",
+    "typedoc": "^0.22.10",
+    "typedoc-plugin-markdown": "^3.11.8",
     "react": ">=17",
     "react-dom": ">=17",
     "size-limit": "^8.1.0",
