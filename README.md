@@ -24,6 +24,56 @@ pnpm add @turbo-eth/erc721-wagmi
 git clone https://github.com/turbo-eth/erc20-wagmi
 ```
 
+### Information
+
+The `@turbo-eth/erc20-wagmi` module exports core ERC20 hooks and components for React application.
+
+#### Hooks
+The WAGMI CLI [`@wagmi/cli`](https://wagmi.sh/cli/getting-started) is used to auto-generate hooks and other core frontend application primitives.
+
+#### Components
+The `@turbo-eth/erc20-wagmi` module also includes ERC20 primitive components.
+
+- ERC20Allowance
+- ERC20Balance
+- ERC20Decimals
+- ERC20Name
+- ERC20Symbol
+- WalletERC20Balance
+
+
+#### Quickstart
+
+```typescript
+import * as React from 'react';
+import classNames from 'clsx';
+import { ERC20Decimals, ERC20Name, ERC20Symbol, } from '@turbo-eth/erc20-wagmi'
+
+interface TokenInformationProps {
+ className?: string;
+ address: `0x${string}`;
+}
+
+export const TokenInformation = ({ className, address }: TokenInformationProps) => { 
+ const classes = classNames(className, 'TokenInformation'); 
+  const { address: accountAddress } = useAccount()
+
+  const { data, isError, isLoading } = useErc20BalanceOf({
+    address,
+    args: [ accountAddress ],
+  });
+
+ return(
+  <div className={classes}>
+    <ERC20Name address={address} />
+    <ERC20Symbol address={address} />
+    <ERC20Decimals address={address} />
+  </div>
+)}
+
+export default TokenInformation;
+```
+
 ### 💻 Developer Experience
 
 The module uses a combination of [DTS](https://github.com/weiran-zsd/dts-cli) and [Microbundle](https://github.com/developit/microbundle) to manage the development workflow.
