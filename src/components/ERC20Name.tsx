@@ -1,14 +1,13 @@
 import * as React from 'react';
 
-import classNames from 'classnames';
+import classNames from 'clsx';
 
-import useERC20Read from '../hooks/useERC20Read';
+import { useErc20Name } from '../core';
 
 interface ERC20NameProps {
   className?: string;
-  address: string;
+  address: '0x${string}';
   abi?: any;
-  functionName?: string;
   chainId?: number;
   args?: any[];
   cacheOnBlock?: boolean;
@@ -33,7 +32,6 @@ export const ERC20Name = ({
   className,
   chainId,
   address,
-  args,
   cacheOnBlock,
   cacheTime,
   enabled,
@@ -46,11 +44,9 @@ export const ERC20Name = ({
   onSettled,
 }: ERC20NameProps): JSX.Element | null => {
   const classes = classNames(className, 'ERC20Name');
-  const { data, isError, isLoading } = useERC20Read({
+  const { data, isError, isLoading } = useErc20Name({
     chainId,
     address,
-    functionName: 'name',
-    args,
     cacheOnBlock,
     cacheTime,
     enabled,

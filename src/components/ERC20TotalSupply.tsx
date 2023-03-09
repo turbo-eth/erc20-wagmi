@@ -1,17 +1,15 @@
 import * as React from 'react';
 
-import classNames from 'classnames';
+import classNames from 'clsx';
 
-import useERC20Read from '../hooks/useERC20Read';
-import { formatBalance } from '../utilities';
+import { useErc20Decimals, useErc20TotalSupply } from '../core';
+import { formatUnits } from 'viem';
 
 interface ERC20TotalSupplyProps {
   className?: string;
-  address: string;
+  address: '0x${string}';
   abi?: any;
-  functionName?: string;
   chainId?: number;
-  args?: any[];
   cacheOnBlock?: boolean;
   watch?: boolean;
   cacheTime?: number;
@@ -34,7 +32,6 @@ export const ERC20TotalSupply = ({
   className,
   chainId,
   address,
-  args,
   cacheOnBlock,
   cacheTime,
   enabled,
@@ -47,11 +44,13 @@ export const ERC20TotalSupply = ({
   onSettled,
 }: ERC20TotalSupplyProps): JSX.Element | null => {
   const classes = classNames(className, 'ERC20TotalSupply');
-  const { data, isError, isLoading } = useERC20Read({
+  const { data: decimals } = useErc20Decimals({
     chainId,
     address,
-    functionName: 'totalSupply',
-    args,
+  });
+  const { data, isError, isLoading } = useErc20TotalSupply({
+    chainId,
+    address,
     cacheOnBlock,
     cacheTime,
     enabled,
@@ -64,7 +63,11 @@ export const ERC20TotalSupply = ({
     onSettled,
   });
   if (isError || isLoading) return null;
-  return <span className={classes}>{formatBalance(String(data))}</span>;
+  return (
+    <span className={classes}>
+      {formatUnits(data as unknown as bigint, (decimals as number) || 18)}
+    </span>
+  );
 };
 
 export default ERC20TotalSupply;

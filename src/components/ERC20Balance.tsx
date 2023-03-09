@@ -1,18 +1,17 @@
 import * as React from 'react';
 
-import classNames from 'classnames';
+import classNames from 'clsx';
 
-import useERC20Read from '../hooks/useERC20Read';
-import { formatBalance } from '../utilities';
+import { useErc20BalanceOf, useErc20Decimals } from '../core';
+import { formatUnits } from 'viem';
 
 interface ERC20BalanceProps {
   className?: string;
   account?: string;
-  address: string;
+  address: '0x${string}';
   abi?: any;
-  functionName?: string;
   chainId?: number;
-  args?: any[];
+  args?: readonly [`0x${string}`];
   cacheOnBlock?: boolean;
   watch?: boolean;
   cacheTime?: number;
@@ -33,7 +32,6 @@ interface ERC20BalanceProps {
 
 export const ERC20Balance = ({
   className,
-  account,
   chainId,
   address,
   args,
@@ -49,11 +47,14 @@ export const ERC20Balance = ({
   onSettled,
 }: ERC20BalanceProps): JSX.Element | null => {
   const classes = classNames(className, 'ERC20Balance');
-  const { data, isError, isLoading } = useERC20Read({
+  const { data: decimals } = useErc20Decimals({
     chainId,
     address,
-    functionName: 'balanceOf',
-    args: args || [account],
+  });
+  const { data, isError, isLoading } = useErc20BalanceOf({
+    chainId,
+    address,
+    args: args,
     cacheOnBlock,
     cacheTime,
     enabled,
@@ -66,7 +67,11 @@ export const ERC20Balance = ({
     onSettled,
   });
   if (isError || isLoading) return null;
-  return <span className={classes}>{formatBalance(String(data))}</span>;
+  return (
+    <span className={classes}>
+      {formatUnits(data as unknown as bigint, (decimals as number) || 18)}
+    </span>
+  );
 };
 
 export default ERC20Balance;
