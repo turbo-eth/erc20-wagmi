@@ -1,8 +1,5 @@
 {
   "extends": "@tsconfig/create-react-app/tsconfig.json",
-  "ts-node": {
-    "require": ["tsconfig-paths/register"]
-  },
   "typedocOptions": {
     "entryPoints": ["./src/index.tsx"],
     "out": "docs",
@@ -23,11 +20,8 @@
     "jsx": "react",
     "jsxFactory": "React.createElement",
     "jsxFragmentFactory": "React.Fragment",
-    "incremental": true,
-    "paths": {
-      "*": ["./types/*.d.ts"]
-    }
+    "incremental": true
   },
-  "include": ["**/*.ts", "**/*.tsx", "test/*.test.tsx", "dts.config.tsss"],
+  "include": ["**/*.ts", "**/*.tsx", "test/*.test.tsx"],
   "exclude": ["node_modules", "dist", "example"]
 }
