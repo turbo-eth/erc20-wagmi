@@ -1,6 +1,6 @@
 {
   "name": "@turbo-eth/erc20-wagmi",
-  "version": "0.0.0-beta.12",
+  "version": "0.0.0-beta.14p ",
   "license": "MIT",
   "author": "Kames Geraghty",
   "source": "src/index.tsx",
@@ -10,6 +10,7 @@
   "types": "dist/index.d.ts",
   "typings": "dist/index.d.ts",
   "exports": {
+    "types": "./dist/index.d.ts",
     "require": "./dist/index.js",
     "default": "./dist/index.module.js"
   },
@@ -20,15 +21,13 @@
   "scripts": {
     "analyze": "size-limit --why",
     "build": "microbundle --jsx React.createElement",
-    "start": "microbundle --jsx React.createElement watch --tsconfig tsconfig.build.json",
+    "start": "microbundle --jsx React.createElement watch",
     "lint": "dts lint",
     "prepare": "husky install ; microbundle  --jsx React.createElement",
     "size": "size-limit",
     "test": "dts test --passWithNoTests",
     "docs": "yarn typedoc --plugin typedoc-plugin-markdown --hideBreadcrumbs true --namedAnchors true --entryDocument index.md",
-    "docs:html": "yarn typedoc --plugin none --out docs",
-    "wagmi:init": "wagmi init",
-    "wagmi:generate": "wagmi generate"
+    "docs:html": "yarn typedoc --plugin none --out docs"
   },
   "husky": {
     "hooks": {
@@ -84,12 +83,12 @@
     "eslint-plugin-unused-imports": "^2.0.0",
     "husky": "^8.0.2",
     "microbundle": "^0.15.1",
-    "typedoc": "^0.22.10",
-    "typedoc-plugin-markdown": "^3.11.8",
     "react": ">=17",
     "react-dom": ">=17",
     "size-limit": "^8.1.0",
     "tslib": "^2.4.1",
+    "typedoc": "^0.22.10",
+    "typedoc-plugin-markdown": "^3.11.8",
     "typescript": "^4.9.4"
   },
   "dependencies": {
